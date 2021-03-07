@@ -16,16 +16,15 @@ class DataSystem:
         self.subprocess = None
 
     def run(self):
-        self.subprocess = subprocess.Popen(
-            ["python", __file__], stdout=subprocess.PIPE, shell=True, preexec_fn=os.setsid
-        )
+        while True:
+            print("Pressure: %.2f hPa" % self.pressure_sensor.pressure)
+            print("Temperature: %.2f C" % self.pressure_sensor.temperature)
+            time.sleep(2)
 
-    def stop(self):
-        os.killpg(os.getpgid(self.subprocess.pid), signal.SIGTERM)
+    # def stop(self):
+    #     os.killpg(os.getpgid(self.subprocess.pid), signal.SIGTERM)
 
 
 if __name__ == "__main__":
-    while True:
-        print("Pressure: %.2f hPa" % lps.pressure)
-        print("Temperature: %.2f C" % lps.temperature)
-        time.sleep(2)
+    data_system = DataSystem()
+    data_system.run()
