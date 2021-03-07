@@ -24,7 +24,8 @@ class Sensor:
             'MeasureName': str(self.sensor_id),
             'MeasureValue': f"{self.sample():.4f}",
             'MeasureValueType': 'DOUBLE',
-            'Time': self.time()
+            'Time': self.time(),
+            'Dimensions': [{'Name': 'type', 'Value': self.type}]
         }
 
     def status(self):
