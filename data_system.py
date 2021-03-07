@@ -33,7 +33,7 @@ class Sensor:
     def __init__(self, sensor_id, type, units, sample_rate, location, description):
         self.sensor_id = sensor_id
         self.type = type
-        self.units = self.units
+        self.units = units
         self.sample_rate = sample_rate
         self.location = location
         self.description = description
