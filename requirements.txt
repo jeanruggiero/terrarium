@@ -5,6 +5,7 @@ adafruit-circuitpython-register==1.9.5
 Adafruit-PlatformDetect==3.2.0
 Adafruit-PureIO==1.1.8
 asn1crypto==0.24.0
+boto3==1.17.22
 certifi==2018.8.24
 chardet==3.0.4
 colorzero==1.1
