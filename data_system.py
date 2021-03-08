@@ -2,6 +2,7 @@ import time
 from sensors import PressureSensor, TemperatureSensor
 from timestream import TimestreamClient
 
+
 class DataSystem:
 
     gateway_url = 'http://raincloud.highlift.io/data/'
@@ -15,11 +16,13 @@ class DataSystem:
         self.timestream_client = TimestreamClient()
 
     def run(self):
+
+        # Take a sample every 5 seconds forever
         while True:
             records = [sensor.record() for sensor in self.sensors]
-            self.timestream_client.write_records(records)
 
-            print(records)
+            # Write all records to timestream
+            self.timestream_client.write_records(records)
 
             time.sleep(5)
 
