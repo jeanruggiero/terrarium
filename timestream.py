@@ -20,5 +20,4 @@ class TimestreamClient:
         )
 
     def write_records(self, records):
-        result = self.client.write_records(DatabaseName=self.DB_NAME, TableName=self.TABLE_NAME, Records=records)
-        print(f"Timestream write status: {result['ResponseMetadata']['HTTPStatusCode']}")
+        self.client.write_records(DatabaseName=self.DB_NAME, TableName=self.TABLE_NAME, Records=records)

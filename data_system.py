@@ -1,6 +1,9 @@
 import time
+import logging
 from sensors import PressureSensor, TemperatureSensor
 from timestream import TimestreamClient
+
+logging.basicConfig(level=logging.INFO)
 
 
 class DataSystem:
@@ -28,5 +31,8 @@ class DataSystem:
 
 
 if __name__ == "__main__":
+    logging.info("[terrarium] Starting data system...")
     data_system = DataSystem()
     data_system.run()
+    logging.info("[terrarium] Data system up and running.")
+
