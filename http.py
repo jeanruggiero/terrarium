@@ -6,6 +6,8 @@ class HttpRequest:
         self.method = parsed_request[0]
         self.path = parsed_request[1].strip()
 
+        print(self.path)
+
     @property
     def device(self):
         return self.path.split("/")[0]
