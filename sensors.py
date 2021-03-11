@@ -1,6 +1,7 @@
 import board
 import busio
 import adafruit_si7021
+import adafruit_mpr121
 import time
 
 
@@ -55,3 +56,15 @@ class TemperatureSensor(Sensor):
 
     def sample(self):
         return self.sensor.temperature
+
+
+class SoilMoistureSensor(Sensor):
+
+    def __init__(self, sensor_id, location, description, channel):
+        super().__init__(sensor_id, 'soil_moisture', '', 0.5, location, description + f' ch{channel}')
+        self.i2c = board.I2C()
+        self.sensor = adafruit_mpr121.MPR121(self.i2c)
+        self.channel = channel
+
+    def sample(self):
+        return self.sensor.filtered_data(self.channel)
