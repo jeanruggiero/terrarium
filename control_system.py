@@ -7,7 +7,7 @@ import logging
 import board
 import digitalio
 
-from .http import HttpRequest
+from http import HttpRequest
 
 logging.basicConfig(level=logging.INFO)
 
