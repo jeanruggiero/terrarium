@@ -1,6 +1,6 @@
 import time
 import logging
-from sensors import PressureSensor, TemperatureSensor
+from sensors import HumiditySensor, TemperatureSensor
 from timestream import TimestreamClient
 
 logging.basicConfig(level=logging.INFO)
@@ -12,7 +12,7 @@ class DataSystem:
 
     def __init__(self):
         self.sensors = [
-            PressureSensor(1, 'desk', 'test pressure sensor'),
+            HumiditySensor(1, 'desk', 'test humidity sensor'),
             TemperatureSensor(2, 'desk', 'test temp sensor')
         ]
 
