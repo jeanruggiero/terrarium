@@ -10,8 +10,10 @@ class HttpRequest:
 
     @property
     def device(self):
+        print(f"Device = {self.path.split('/')[0]}")
         return self.path.split("/")[0]
 
     @property
     def state(self):
+        print(f"State = {self.path.split('/')[1]}")
         return self.path.split("/")[1]
