@@ -4,7 +4,7 @@ class HttpRequest:
         self.request = request
         parsed_request = request.split(" ")
         self.method = parsed_request[0]
-        self.path = parsed_request[1]
+        self.path = parsed_request[1].strip()
 
     @property
     def device(self):
