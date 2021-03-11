@@ -13,14 +13,14 @@ logging.basicConfig(level=logging.INFO)
 
 # Server config
 host = ''
-port = 80
+port = 8080
 
 # Device config
 led = digitalio.DigitalInOut(board.D4)
 led.direction = digitalio.Direction.OUTPUT
 
 
-logging.info("Starting deploy listener...")
+logging.info("Starting deploy control system...")
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))
 
@@ -42,7 +42,7 @@ while True:
             device = request.device
             state = request.state
 
-            logging.info(f"[terrarium] Received command for {request}: {state}")
+            logging.info(f"[terrarium] Received command for {device}: {state}")
 
             if device == 'led':
                 led.value = state == 'on'
