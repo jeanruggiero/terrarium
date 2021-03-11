@@ -13,7 +13,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Server config
 host = ''
-port = 8080
+port = 80
 
 # Device config
 led = digitalio.DigitalInOut(board.D4)
