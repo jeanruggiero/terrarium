@@ -39,7 +39,7 @@ class HumiditySensor(Sensor):
 
     def __init__(self, sensor_id, location, description):
         super().__init__(sensor_id, 'humidity', '%', 0.5, location, description)
-        self.i2c = busio.I2C(board.SCL, board.SDA)
+        self.i2c = board.I2C()
         self.sensor = adafruit_si7021.SI7021(self.i2c)
 
     def sample(self):
@@ -50,7 +50,7 @@ class TemperatureSensor(Sensor):
 
     def __init__(self, sensor_id, location, description):
         super().__init__(sensor_id, 'temperature', 'degC', 0.5, location, description)
-        self.i2c = busio.I2C(board.SCL, board.SDA)
+        self.i2c = board.I2C()
         self.sensor = adafruit_si7021.SI7021(self.i2c)
 
     def sample(self):
