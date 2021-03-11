@@ -19,6 +19,7 @@ class DataSystem:
         self.timestream_client = TimestreamClient()
 
     def run(self):
+        logging.info("[terrarium] Data system up and running.")
 
         # Take a sample every 5 seconds forever
         while True:
@@ -34,5 +35,3 @@ if __name__ == "__main__":
     logging.info("[terrarium] Starting data system...")
     data_system = DataSystem()
     data_system.run()
-    logging.info("[terrarium] Data system up and running.")
-
